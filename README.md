@@ -1,10 +1,10 @@
 # IfElse
 
-**TODO: Add description**
+Conditional logic for expressions based on truthy/empty values.
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+IfElse is [available in Hex](https://hex.pm/docs/publish), the package can be installed
 by adding `if_else` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -15,7 +15,24 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/if_else>.
+## Usage
 
+```elixir
+Interactive Elixir (1.14.0) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)> import IfElse
+IfElse
+iex(2)> is_empty?("")
+true
+iex(3)> empty_else("foo", "bar")
+"foo"
+iex(4)> empty_else("", "bar")
+"bar"
+iex(5)> empty_else("", fn -> "bar" end)
+"bar"
+iex(6)> coalesce([false, nil, "true", false])
+"true"
+iex(7)> put_if(%{one: %{two: :three}}, :four, [:one, :two])
+%{one: %{two: :four}}
+iex(8)> put_if(%{one: %{two: :three}}, nil, [:one, :two])
+%{one: %{two: :three}}
+```
