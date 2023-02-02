@@ -1,10 +1,30 @@
 defmodule IfElse do
   @moduledoc """
   Functions providing conditional logic.
+
+  ```
+  Interactive Elixir (1.14.0) - press Ctrl+C to exit (type h() ENTER for help)
+  iex(1)> import IfElse
+  IfElse
+  iex(2)> is_empty?("")
+  true
+  iex(3)> empty_else("foo", "bar")
+  "foo"
+  iex(4)> empty_else("", "bar")
+  "bar"
+  iex(5)> empty_else("", fn -> "bar" end)
+  "bar"
+  iex(6)> coalesce([false, nil, "true", false])
+  "true"
+  iex(7)> put_if(%{one: %{two: :three}}, :four, [:one, :two])
+  %{one: %{two: :four}}
+  iex(8)> put_if(%{one: %{two: :three}}, nil, [:one, :two])
+  %{one: %{two: :three}}
+  ```
   """
 
   @doc """
-  Check for empty strings, where empty is nil or `""`.
+  Check for empty strings, where empty is `nil` or `""`.
   """
   @spec is_empty?(nil | String.t()) :: true | false
   def is_empty?(nil), do: true
