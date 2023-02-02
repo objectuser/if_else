@@ -4,8 +4,8 @@ Conditional logic for expressions based on truthy/empty values.
 
 ## Installation
 
-IfElse is [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `if_else` to your list of dependencies in `mix.exs`:
+IfElse is [available in Hex](https://hex.pm/packages/if_else), the package can
+be installed by adding `if_else` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
