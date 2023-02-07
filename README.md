@@ -36,3 +36,14 @@ iex(7)> put_if(%{one: %{two: :three}}, :four, [:one, :two])
 iex(8)> put_if(%{one: %{two: :three}}, nil, [:one, :two])
 %{one: %{two: :three}}
 ```
+
+
+## Conditional function calls in a pipeline
+
+Only call `put_session/3` if `session_value` is not `nil`.
+
+```elixir
+conn
+|> call_if(session_value, & put_session(&1, :session_key, &2))
+|> ...
+```
